@@ -20,7 +20,7 @@ perfil = st.Page("perfil.py", title="Perfil", icon=":material/face:")
 objetivos = st.Page("objetivos.py", title="Objetivos", icon=":material/new_releases:")
 iniciativas = st.Page("iniciativas.py", title="Iniciativas", icon=":material/arrow_split:")
 chat =st.Page("chat.py", title="Chat", icon=":material/chat:")
-tiempo = st.Page("tiempo.py", title="Cronómetro", icon=":material/timer:")
+tiempo = st.Page("temporizador.py", title="Cronómetro", icon=":material/timer:")
 
 pg = st.navigation([home,perfil,objetivos,iniciativas,chat,tiempo])
 pg.run()
