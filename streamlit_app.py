@@ -21,8 +21,9 @@ objetivos = st.Page("objetivos.py", title="Objetivos", icon=":material/new_relea
 iniciativas = st.Page("iniciativas.py", title="Iniciativas", icon=":material/arrow_split:")
 chat =st.Page("chat.py", title="Chat", icon=":material/chat:")
 tiempo = st.Page("temporizador.py", title="Cronómetro", icon=":material/timer:")
-
-pg = st.navigation([home,perfil,objetivos,iniciativas,chat,tiempo])
+juego =st.Page("juego.py", title="Play", icon=":material/quiz:")
+prediccion =st.Page("predictor.py", title="Predictor de consumo", icon=":material/quiz:")
+pg = st.navigation([home,perfil,objetivos,iniciativas,chat,juego,tiempo,prediccion])
 pg.run()
 
 
