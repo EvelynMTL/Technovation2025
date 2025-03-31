@@ -2,10 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# Datos de ejemplo: consumo diario de agua en litros durante los últimos 30 días
+# Generar datos de ejemplo: consumo diario de agua en litros durante los últimos 30 días
+np.random.seed(42)
+days = list(range(1, 31))
+consumption = np.random.randint(10, 40, size=30)
 data = {
-    "day": list(range(1, 31)),
-    "consumption": [10, 12, 11, 13, 15, 14, 16, 18, 17, 19, 20, 22, 21, 23, 25, 24, 26, 28, 27, 29, 30, 32, 31, 33, 35, 34, 36, 38, 37, 39]
+    "day": days,
+    "consumption": consumption
 }
 
 # Convertir datos a DataFrame
@@ -22,7 +25,7 @@ def predict_consumption(days):
     # Predecir el consumo futuro
     future_days = np.array(days)
     predictions = m * future_days + c
-    return predictions
+    return future_days, predictions
 
 # Diseño de la aplicación en Streamlit
 st.title("Predicción del Consumo de Agua")
@@ -37,7 +40,7 @@ days_to_predict = st.number_input("Introduce el número de días a predecir:", m
 # Predecir el consumo futuro y mostrar los resultados
 if st.button("Predecir"):
     future_days = list(range(31, 31 + days_to_predict))
-    predictions = predict_consumption(future_days)
+    future_days, predictions = predict_consumption(future_days)
     prediction_df = pd.DataFrame({"day": future_days, "predicted_consumption": predictions})
     st.write("Predicción del Consumo de Agua para los Próximos {} Días".format(days_to_predict))
     st.write(prediction_df)
