@@ -5,7 +5,7 @@ import numpy as np
 # Generar datos de ejemplo: consumo diario de agua en litros durante los últimos 30 días
 np.random.seed(42)
 days = list(range(1, 31))
-consumption = np.random.randint(10, 40, size=30)
+consumption = np.random.randint(10, 20, size=30)
 data = {
     "day": days,
     "consumption": consumption
