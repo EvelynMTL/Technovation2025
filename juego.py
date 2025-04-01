@@ -31,8 +31,9 @@ if 'score' not in st.session_state:
 st.title("Demuestra cuanto sabes")
 
 # Mostrar la puntuación
-st.write(f"Puntuación: {st.session_state.score}")
-panel_verifica=st.empty()
+
+panel_verifica=st.container(border=True)
+panel_verifica.write(f"Puntuación: {st.session_state.score}")
 
 col1, col2 = st.columns(2,vertical_alignment="center")
 # Mostrar preguntas y respuestas como botones
