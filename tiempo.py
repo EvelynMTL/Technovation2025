@@ -88,16 +88,16 @@ with col1:
 with col2:
     stop_button = st.button("Parar", on_click=stop_timer)
 
-respuesta = st.empty()
+
 
 def escribe_resultado():
     resultado = calcular_gasto_agua("ducha", 7)
-    if isinstance(resultado, dict):
-        st.write( resultado )
-        respuesta.write({resultado['equivalencia_cubos']}, " cubos de agua" )
-
-        print(f"Equivalente a {resultado['equivalencia_cubos']} cubos de agua")
-        print(f"Equivalente a {resultado['equivalencia_piscinas']} piscinas")
+    
+    st.write( resultado )
+    st.write({resultado['equivalencia_cubos']})
+        #print(f"Gasto de agua: {resultado['gasto_agua_litros']} litros")
+        #print(f"Equivalente a {resultado['equivalencia_cubos']} cubos de agua")
+        #print(f"Equivalente a {resultado['equivalencia_piscinas']} piscinas")
   
 
 
