@@ -44,6 +44,9 @@ if 'elapsed_time' not in st.session_state:
 def start_timer():
     st.session_state.start_time = 0
     st.session_state.elapsed_time = 0
+    pintar.write("")
+    pintar.write("")
+    pintar.write("")
     if not st.session_state.running:
         st.session_state.running = True
         st.session_state.start_time = time.time() - st.session_state.elapsed_time
@@ -61,9 +64,29 @@ def update_timer():
     if st.session_state.running:
         st.session_state.elapsed_time = time.time() - st.session_state.start_time
     minutes, seconds = divmod(st.session_state.elapsed_time, 60)
+    print(minutes)
+
     hours, minutes = divmod(minutes, 60)
     return f"{int(hours):02}:{int(minutes):02}:{int(seconds):02}"
 
+
+def escribe_resultado():
+
+ #   if divmod(st.session_state.elapsed_time, 60)==0 :
+  #      pintar.write(f"Poco tiempo")
+   # else:
+
+        resultado = calcular_gasto_agua(tipo_consumo, 7)
+        pintar.write(f"Gasto de agua: {resultado['gasto_agua_litros']} litros")
+        pintar.write(f"Equivalente a {resultado['equivalencia_cubos']} cubos de agua")
+        pintar.write(f"Equivalente a {resultado['equivalencia_piscinas']} piscinas")
+
+        #st.write( resultado )
+        #st.write({resultado['equivalencia_cubos']})
+            #print(f"Gasto de agua: {resultado['gasto_agua_litros']} litros")
+            #print(f"Equivalente a {resultado['equivalencia_cubos']} cubos de agua")
+            #print(f"Equivalente a {resultado['equivalencia_piscinas']} piscinas")
+    
 
 st.title("Cronómetro")
 st.write(
@@ -88,17 +111,9 @@ with col1:
 with col2:
     stop_button = st.button("Parar", on_click=stop_timer)
 
+pintar= st.container()
 
 
-def escribe_resultado():
-    resultado = calcular_gasto_agua("ducha", 7)
-    
-    st.write( resultado )
-    st.write({resultado['equivalencia_cubos']})
-        #print(f"Gasto de agua: {resultado['gasto_agua_litros']} litros")
-        #print(f"Equivalente a {resultado['equivalencia_cubos']} cubos de agua")
-        #print(f"Equivalente a {resultado['equivalencia_piscinas']} piscinas")
-  
 
 
 
