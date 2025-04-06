@@ -1,6 +1,17 @@
 import streamlit as st
 st.title("MIS OBJETIVOS")
 
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+
+
+if st.session_state.score < 2 :
+    st.write("Supera nuestro QUIZ y demuestra que eres un experto ")
+    st.write("Tienes ", st.session_state.score, " puntos ")
+else: 
+    st.write("Lo conseguiste :material/star:!  tienes ", st.session_state.score, " puntos ")
+    st.write("Sigue asi")
+
 
 tab1, tab2, tab3 = st.tabs(["Diarios", "Semanales", "Mensuales"])
 
