@@ -1,20 +1,12 @@
 import streamlit as st
+#definimos nuestro logo
 
-if "logged_in" not in st.session_state:
-    st.session_state.logged_in = False
 
-def login():
-    if st.button("Log in"):
-        st.session_state.logged_in = True
-        st.rerun()
+sidebar_logo =  "imagenes/gota.jpeg"
+main_body_logo =  "imagenes/gota.jpeg"
 
-def logout():
-    if st.button("Log out"):
-        st.session_state.logged_in = False
-        st.rerun()
+st.logo(sidebar_logo, icon_image=main_body_logo)
 
-login_page = st.Page(login, title="Log in", icon=":material/login:")
-logout_page = st.Page(logout, title="Log out", icon=":material/logout:")
 home  =st.Page("home.py", title="Inicio", icon=":material/home:")
 perfil = st.Page("perfil.py", title="Perfil", icon=":material/face:")
 objetivos = st.Page("objetivos.py", title="Objetivos", icon=":material/new_releases:")
@@ -25,9 +17,3 @@ juego =st.Page("juego.py", title="Play", icon=":material/quiz:")
 prediccion =st.Page("predictor.py", title="Predictor de consumo", icon=":material/quiz:")
 pg = st.navigation([home,perfil,objetivos,iniciativas,chat,juego,tiempo,prediccion])
 pg.run()
-
-
-#if st.session_state.logged_in:
- #  st.navigation([home,perfil,iniciativas,chat,tiempo])
-#else:
- #  pg = st.navigation([login_page])
