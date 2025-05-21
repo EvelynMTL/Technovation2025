@@ -15,7 +15,7 @@ try:
 
     # Conectamos a Firestore
     db = firestore.client()
-    # st.success("Conexión a Firebase exitosa.")
+    st.success("Conexión a Firebase exitosa.")
 except Exception as e:
     st.error(f"Error conectando a Firebase: {e}")
 
