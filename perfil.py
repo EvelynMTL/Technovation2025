@@ -8,6 +8,7 @@ try:
     if not firebase_admin._apps:
         # Si no está inicializada, lo hacemos con las credenciales
         firebase_dict = st.secrets["firebase"]
+        st.write(type(st.secrets["firebase"])) 
         cred = credentials.Certificate(firebase_dict)
         #cred = credentials.Certificate('imagenes_inicio/waving_certificado.json')  # Reemplaza con la ruta de tu archivo de credenciales
         firebase_admin.initialize_app(cred)
