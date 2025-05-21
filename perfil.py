@@ -42,11 +42,11 @@ perfil = cargar_perfil(usuario_id)
 # Si el perfil existe en Firebase, lo cargamos en la sesión
 if perfil:
     st.session_state.puntuacion = perfil.get("puntuacion", 0)
-   # st.session_state.objetivos = perfil.get("objetivos", {})
+    st.session_state.objetivos = perfil.get("objetivos", {})
 else:
     # Si no existe, inicializamos los datos del perfil
     st.session_state.puntuacion = 0
-    #  st.session_state.objetivos = {}
+    st.session_state.objetivos = {}
 
 # Si no existe la puntuación de los juegos, inicialízala
 if "puntuacion_juegos" not in st.session_state:
@@ -60,8 +60,8 @@ st.title("Perfil del Usuario")
 st.write(f"**Puntuación Total**: 🌟 {puntuacion_total} puntos")
 
 # Aquí podrías añadir más información sobre el perfil, como nombre, correo, etc.
-# st.write(f"**Nombre de Usuario:** {perfil.get('nombre', 'No disponible')}")
-# st.write(f"**Correo:** {perfil.get('correo', 'No disponible')}")
+st.write(f"**Nombre de Usuario:** {perfil.get('nombre', 'No disponible')}")
+st.write(f"**Correo:** {perfil.get('correo', 'No disponible')}")
 
 
 # Aquí se pueden actualizar los datos del perfil, como nombre o correo.
