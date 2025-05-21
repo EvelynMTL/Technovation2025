@@ -42,11 +42,11 @@ perfil = cargar_perfil(usuario_id)
 # Si el perfil existe en Firebase, lo cargamos en la sesión
 if perfil:
     st.session_state.puntuacion = perfil.get("puntuacion", 0)
-    st.session_state.objetivos = perfil.get("objetivos", {})
+   # st.session_state.objetivos = perfil.get("objetivos", {})
 else:
     # Si no existe, inicializamos los datos del perfil
     st.session_state.puntuacion = 0
-    st.session_state.objetivos = {}
+    #  st.session_state.objetivos = {}
 
 # Si no existe la puntuación de los juegos, inicialízala
 if "puntuacion_juegos" not in st.session_state:
@@ -79,7 +79,7 @@ if st.button("Guardar progreso"):
         "nombre": nombre_usuario,
         "correo": correo_usuario,
         "puntuacion": puntuacion_total,
-        "objetivos": st.session_state.objetivos
+       #   "objetivos": st.session_state.objetivos
     }
     guardar_perfil(usuario_id, datos_perfil)
     st.success("Progreso guardado correctamente.")
