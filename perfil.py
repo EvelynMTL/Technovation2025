@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 import json
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -10,7 +9,7 @@ try:
     if not firebase_admin._apps:
         # Si no está inicializada, lo hacemos con las credenciales
         # Leer la clave del entorno como string y convertirla a dict
-        service_account_info = json.loads(os.environ["FIREBASE_KEY"])
+        service_account_info = json.loads(st.secrets["FIREBASE_KEY"])
         cred = credentials.Certificate(service_account_info)
         #cred = credentials.Certificate('imagenes_inicio/waving_certificado.json')  # Reemplaza con la ruta de tu archivo de credenciales
         firebase_admin.initialize_app(cred)
